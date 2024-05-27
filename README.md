@@ -15,13 +15,14 @@
 
 1. **Setting Up the Honeypot (VM)**
    - Create a Windows 10 VM on Azure.
-   - Change all defaults and use a specific username and password for the VM.
+   - Change all default administrator account information and use a specific username and password for the VM.
    - Disable the firewall by running `wf.msc` and turning off the public and private profiles.
 
 2. **Running the PowerShell Script**
-   - Download a ready made PowerShell script to monitor and log failed login attempts.
-   - Use a Geolocation API to convert latitude and longitude into country and state information.
-   - Leave the honeypot on and online while running the script for 96 hours.
+   - On the honeypot VM, open PowerShell ISE, paste script and save.
+   - Register account on https://ipgeolocation.io/ and use your provided API Key in the PS1 script.
+   - Run the script and leave it running.
+   - Leave the honeypot VM online while running the script for 96 hours.
    - The Geoloction API free version makes 1000 calls per day.
 
 3. **Setting Up Azure Sentinel**
