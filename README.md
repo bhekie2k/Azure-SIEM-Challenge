@@ -7,9 +7,14 @@
 
 ## Project Structure
 - `scripts/` - Contains the PowerShell script for monitoring failed login attempts.
+  - [monitor_failed_logins.ps1](scripts/monitor_failed_logins.ps1) - PowerShell script to capture login attempts.
 - `queries/` - Contains the KQL queries used in Azure Sentinel.
+  - [failed_logon_query.kql](queries/failed_logon_query.kql) - KQL query for visualizing failed login attempts.
 - `screenshots/` - Contains screenshots of map visualization and alerts configuration.
+  - `map_visualization.png` - Screenshot of the map visualization.
+  - `alerts_configuration.png` - Screenshot of the alerts configuration.
 - `documentation/` - Contains detailed project documentation.
+  - [project_documentation.md](documentation/project_documentation.md) - Detailed project documentation.
 
 ## Steps to Reproduce
 
@@ -20,10 +25,10 @@
 
 2. **Running the PowerShell Script**
    - On the honeypot VM, open PowerShell ISE, paste script and save.
-   - Register account on https://ipgeolocation.io/ and use your provided API Key in the PS1 script.
+   - Register account on [ipgeolocation.io](https://ipgeolocation.io/) and use your provided API Key in the PS1 script.
    - Run the script and leave it running.
    - Leave the honeypot VM online while running the script for 96 hours.
-   - The Geoloction API free version makes 1000 calls per day.
+   - The Geolocation API free version makes 1000 calls per day.
 
 3. **Setting Up Azure Sentinel**
    - Create a Log Analytics workspace.
