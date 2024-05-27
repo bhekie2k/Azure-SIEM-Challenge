@@ -1,1 +1,8 @@
- 
+failed_logon_CL
+| where not(tolower(extract(@"destinationhost:([^,]+)", 1, RawData)) == "samplehost")
+| extend Latitude = todouble(extract(@"latitude:([^,]+)", 1, RawData))
+| extend Longitude = todouble(extract(@"longitude:([^,]+)", 1, RawData))
+| extend Country = extract(@"country:([^,]+)", 1, RawData)
+| summarize AttemptCount = count() by Country, Latitude, Longitude
+| where isnotempty(Country)
+| project Country, Latitude, Longitude, AttemptCount 
