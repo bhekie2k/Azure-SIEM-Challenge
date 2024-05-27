@@ -1,0 +1,6 @@
+// KQL query to visualize failed login attempts
+// Replace with actual query content
+
+failed_logon_CL
+| summarize AttemptCount = count() by Latitude, Longitude, State, Country, AttemptedUsername
+| project Latitude, Longitude, State, Country, AttemptCount
