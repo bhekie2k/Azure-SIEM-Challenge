@@ -33,8 +33,8 @@
 3. **Setting Up Azure Sentinel**
    - Create a Log Analytics workspace.
    - Set up Azure Sentinel and connect it to the workspace.
-   - Activate Azure Security Center.
-   - Configure data collection rules.
+   - Add Data Connectors and configure Data Collection Rules to pick up on Common Windows Events.
+   - Ensure the honeypot is sending logs to the Log Analytics workspace through Azure Monitor.
 
 4. **Data Visualization**
    - Create a custom table named `failed_logon_CL` in Azure Sentinel.
