@@ -1,7 +1,7 @@
 # Azure Honeypot with Sentinel
 
 ## Objective
-1. Build a honeypot environment with a VM on Azure that is discoverable on the internet.
+1. Build a honeypot by deploying an Azure VM on that is discoverable on the internet.
 2. Utilize Azure Sentinel to monitor and visualize the failed login attempts on a world map, showing the number of attempts by country.
 3. Create alerts and incidents for further analysis.
 
@@ -19,12 +19,13 @@
 ## Steps to Reproduce
 
 1. **Setting Up the Honeypot (VM)**
-   - Create a Windows 10 VM on Azure.
+   - Create a VM on Azure. My choice was a Win 10 machine as the most basic configuration needed.
    - Change all default administrator account information and use a specific username and password for the VM.
    - Disable the firewall by running `wf.msc` and turning off the public and private profiles.
+   - Ensure you are able to ping the device and RDP into it from the internet. This confirms it can be discovered by actors on the web.
 
 2. **Running the PowerShell Script**
-   - On the honeypot VM, open PowerShell ISE, paste script and save.
+   - On the honeypot VM, open PowerShell ISE, paste script and save it where it can be easily located.
    - Register account on [ipgeolocation.io](https://ipgeolocation.io/) and use your provided API Key in the PS1 script.
    - Run the script and leave it running.
    - Leave the honeypot VM online while running the script for 96 hours.
@@ -32,8 +33,8 @@
 
 3. **Setting Up Azure Sentinel**
    - Create a Log Analytics workspace.
-   - Set up Azure Sentinel and connect it to the workspace.
-   - Add Data Connectors and configure Data Collection Rules to pick up on Common Windows Events.
+   - Enable Azure Sentinel and connect it to the workspace.
+   - Add Data Connectors and configure Data Collection Rules to pick up on Common Windows Events from the honeypot VM.
    - Ensure the honeypot is sending logs to the Log Analytics workspace through Azure Monitor.
 
 4. **Data Visualization**
